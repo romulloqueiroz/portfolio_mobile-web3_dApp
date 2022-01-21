@@ -7,19 +7,17 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import WalletConnect from './WalletConnect'
 const ORIGIN = 'example'
 
-export default function App() {
-  return (
-    <WalletConnectProvider
-      redirectUrl={ Platform.OS === 'web' ? window.location.origin: `${ORIGIN}://`}
-      storageOptions={{ asyncStorage: AsyncStorage }}
-    >
-      <View style={styles.container}>
-        <WalletConnect />
-        <StatusBar style='auto' />
-      </View>
-    </WalletConnectProvider>
-  )
-}
+const dApp = () => (
+  <WalletConnectProvider
+    redirectUrl={ Platform.OS === 'web' ? window.location.origin: `${ORIGIN}://`}
+    storageOptions={{ asyncStorage: AsyncStorage }}
+  >
+    <View style={styles.container}>
+      <WalletConnect />
+      <StatusBar style='auto' />
+    </View>
+  </WalletConnectProvider>
+)
 
 const styles = StyleSheet.create({
   container: {
@@ -29,3 +27,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 })
+
+export default dApp
