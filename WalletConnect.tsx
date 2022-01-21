@@ -16,7 +16,10 @@ const WalletConnect = () => {
   return (
     <>
       {!connector.connected ? (
-        <Button onPress={connectWallet} label='Connect to a wallet' />
+        <View style={styles.container}>
+          <Text style={styles.title}>Welcome to my Wallet! </Text>
+          <Button onPress={connectWallet} label='Connect to a wallet' />
+        </View>
       ) : (
         <View style={styles.container}>
           <Text style={styles.title}>Address from Provider: </Text>
