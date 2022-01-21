@@ -19,7 +19,8 @@ const WalletConnect = () => {
         <Button onPress={connectWallet} label='Connect to a wallet' />
       ) : (
         <View style={styles.container}>
-          <Text>{connector.accounts[0]}</Text>
+          <Text style={styles.title}>Address from Provider: </Text>
+          <Text style={styles.address}>{connector.accounts[0]}</Text>
           <Button onPress={killSession} label='Log out' />
         </View>
       )}
@@ -28,12 +29,22 @@ const WalletConnect = () => {
 }
 
 const styles = StyleSheet.create({
+  title: {
+    fontSize: 20,
+    marginBottom: 10,
+    fontWeight: 'bold',
+  },
+  address: {
+    fontSize: 16,
+    marginBottom: 20,
+  },
   button: {
-    backgroundColor: '#5A45FF',
+    backgroundColor: '#F58420',
     color: '#FFFFFF',
-    borderRadius: 12,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+    fontWeight: 'bold',
+    borderRadius: 5,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
   },
   text: {
     color: '#FFFFFF',
